@@ -33,14 +33,17 @@ const main = async () => {
   let rc = { error: undefined, success: true }
 
   if (data) {
+    console.log('Loading data...')
     rc = await loadDecks()
   }
 
   if (userId) {
-    rc = await resetUserDecks(user)
+    console.log('Reset user decks...')
+    rc = await resetUserDecks(userId)
   }
 
   if (rc.success) {
+    console.log('Done!')
     process.exit(0)
   } else {
     console.error(rc.error)

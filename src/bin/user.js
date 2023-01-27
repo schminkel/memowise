@@ -1,10 +1,6 @@
-import process from 'process'
-import mongoose from 'mongoose'
 
-import { data } from '../data/seed'
 import { User } from '../models/User'
 import { Deck } from '../models/Deck'
-import { dump } from '../utils/debug'
 import { composeURI, connectToDB, isDBConnected } from '../utils/connectToDB.js'
 
 export const resetUserDecks = async (id) => {
@@ -51,3 +47,4 @@ export const resetUserDecks = async (id) => {
 
   return { error: undefined, success: true }
 }
+export default resetUserDecks;

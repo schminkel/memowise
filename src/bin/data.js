@@ -8,7 +8,7 @@ import { Topic } from '../models/Topic'
 import { SubTopic } from '../models/SubTopic'
 import { composeURI, connectToDB, isDBConnected } from '../utils/connectToDB.js'
 
-export const loadData = async () => {
+export const loadDecks = async () => {
   await connectToDB(composeURI())
 
   if (!isDBConnected()) {
@@ -64,3 +64,4 @@ export const loadData = async () => {
 
   return { error: undefined, success: true }
 }
+export default loadDecks;
