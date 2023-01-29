@@ -11,9 +11,7 @@ export const BreadCrumbs = ({ crumbs }) => {
 
   const MobileCrumb = () => (
     <Link href={mobileCrumb.path} className="leading-tight">
-      <a>
         <span className="mx-1 text-blue-600">&lt;- {mobileCrumb.name}</span>
-      </a>
     </Link>
   )
 
@@ -23,9 +21,7 @@ export const BreadCrumbs = ({ crumbs }) => {
         <span className="mx-1">/</span>
         {crumb.isLink ? (
           <Link href={crumb.path} className="leading-tight">
-            <a>
-              <span className="mx-1 text-blue-600">{crumb.name}</span>
-            </a>
+            <span className="mx-1 text-blue-600">{crumb.name}</span>
           </Link>
         ) : (
           <span className="mx-1 leading-tight">{crumb.name}</span>
@@ -39,10 +35,8 @@ export const BreadCrumbs = ({ crumbs }) => {
   return (
     <div className="text-sm font-medium text-gray-500">
       <div className="items-center hidden sm:flex">
-        <Link href="/">
-          <a aria-label="home page icon">
-            <HomeIcon />
-          </a>
+        <Link href="/" aria-label="home page icon">
+          <HomeIcon />
         </Link>
         {renderAllCrumbs}
       </div>

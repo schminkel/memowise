@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { signIn, useSession } from 'next-auth/client'
+import { signIn, useSession } from 'next-auth/react'
 
 export const Nav = () => {
-  const [session] = useSession()
+  const { data: session, status } = useSession()
 
   const SignInButton = () => (
     <button
@@ -17,15 +17,13 @@ export const Nav = () => {
 
   const UserAvatar = () => (
     <Link href="/dashboard">
-      <a>
-        <Image
-          src={session.user.image}
-          className="rounded-full"
-          alt={`avatar for user ${session.user.name}`}
-          width={40}
-          height={40}
-        />
-      </a>
+      <Image
+        src={session.user.image}
+        className="rounded-full"
+        alt={`avatar for user ${session.user.name}`}
+        width={40}
+        height={40}
+      />
     </Link>
   )
 
@@ -33,8 +31,8 @@ export const Nav = () => {
     <nav>
       <div className="flex items-center justify-between py-6 border-b border-gray-200">
         <div>
-          <Link href="/">
-            <a className="text-lg font-semibold tracking-wide">memowise</a>
+          <Link href="/" className="text-lg font-semibold tracking-wide">
+            memowise
           </Link>
         </div>
         <div className="flex items-center space-x-4">

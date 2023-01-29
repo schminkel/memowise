@@ -16,6 +16,7 @@ export const loadDecks = async () => {
   }
 
   try {
+    mongoose.set("strictQuery", false);
     await mongoose.connection.db.dropCollection('topics')
     await mongoose.connection.db.dropCollection('subtopics')
     await mongoose.connection.db.dropCollection('decks')

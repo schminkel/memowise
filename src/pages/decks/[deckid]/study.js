@@ -3,7 +3,7 @@ import Link from 'next/link'
 import useSWR from 'swr'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 
 import { Container } from '@/components/Container'
 import { Cards } from '@/components/Cards'
@@ -16,7 +16,7 @@ import { fetcher } from '@/utils/fetcher'
 import { isEmpty } from '@/utils/isEmpty'
 
 const StudyPage = () => {
-  const [session] = useSession()
+  const { data: session, status } = useSession()
   const { user } = useUser(session)
   const { query } = useRouter()
   const { data } = useSWR(
@@ -133,10 +133,8 @@ const StudyPage = () => {
       <Container>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-gray-900 ">Flashcards</h2>
-          <Link href={`/decks/${deck.id}/quiz`}>
-            <a className="inline-flex items-center px-3 py-1.5 font-semibold text-white bg-gray-900 text-md rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 hover:bg-gray-700">
-              Take Quiz
-            </a>
+          <Link href={`/decks/${deck.id}/quiz`} className="inline-flex items-center px-3 py-1.5 font-semibold text-white bg-gray-900 text-md rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 hover:bg-gray-700">
+            Take Quiz
           </Link>
         </div>
         <Cards cards={deck.cards} />

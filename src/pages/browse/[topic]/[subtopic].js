@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 
 import { Container } from '@/components/Container'
 import { Decks } from '@/components/Decks'
@@ -8,7 +8,7 @@ import { useUser } from '@/hooks/useUser'
 import { getTopic, getTopicList, getSubTopic, getDeckList } from '@/lib/data'
 
 const SubTopicPage = ({ topic, subTopic, decks }) => {
-  const [session] = useSession()
+  const { data: session, status } = useSession()
   const { user } = useUser(session)
   const created = decks.filter((deck) =>
     (user?.decks?.created ?? []).find((created) => created.id === deck.id)

@@ -1,16 +1,18 @@
 import '../styles/app.css'
-import { Provider } from 'next-auth/client'
+import { SessionProvider } from "next-auth/react"
 
 import { Layout } from '@/components/Layout'
 
-const App = ({ Component, pageProps }) => {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+
   return (
-    <Provider session={pageProps.session}>
+    <SessionProvider session={session}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </Provider>
+    </SessionProvider>
   )
 }
-
-export default App

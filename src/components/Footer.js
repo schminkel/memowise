@@ -1,4 +1,4 @@
-//import Link from 'next/link'
+import Link from 'next/link'
 
 export const Footer = () => {
   return (
@@ -10,23 +10,23 @@ export const Footer = () => {
             <h4 className="font-semibold text-gray-500 uppercase">Topics</h4>
             <ul className="text-gray-500 space-y-4">
               <li>
-                <Link href="/browse/math">
-                  <a className="hover:text-blue-600"> Math </a>
+                <Link href="/browse/math" className="hover:text-blue-600">
+                  Math
                 </Link>
               </li>
               <li>
-                <Link href="/browse/languages">
-                  <a className="hover:text-blue-600"> Languages </a>
+                <Link href="/browse/languages" className="hover:text-blue-600">
+                  Languages
                 </Link>
               </li>
               <li>
-                <Link href="/browse/science">
-                  <a className="hover:text-blue-600"> Science </a>
+                <Link href="/browse/science" className="hover:text-blue-600">
+                  Science
                 </Link>
               </li>
               <li>
-                <Link href="/browse/all-the-things">
-                  <a className="hover:text-blue-600"> All The Things </a>
+                <Link href="/browse/all-the-things" className="hover:text-blue-600">
+                  All The Things
                 </Link>
               </li>
             </ul>
@@ -35,25 +35,23 @@ export const Footer = () => {
             <h4 className="font-semibold text-gray-500 uppercase">Features</h4>
             <ul className="text-gray-500 space-y-4">
               <li>
-                <Link href="/features#browse">
-                  <a className="hover:text-blue-600">
-                    Browse Topics & Flashcards
-                  </a>
+                <Link href="/features#browse" className="hover:text-blue-600">
+                  Browse Topics & Flashcards
                 </Link>
               </li>
               <li>
-                <Link href="/features#quiz">
-                  <a className="hover:text-blue-600">Flashcard Quiz</a>
+                <Link href="/features#quiz" className="hover:text-blue-600">
+                  Flashcard Quiz
                 </Link>
               </li>
               <li>
-                <Link href="/features#create">
-                  <a className="hover:text-blue-600">Create Flashcards</a>
+                <Link href="/features#create" className="hover:text-blue-600">
+                  Create Flashcards
                 </Link>
               </li>
               <li>
-                <Link href="/features#personalize">
-                  <a className="hover:text-blue-600">Personalized Collection</a>
+                <Link href="/features#personalize" className="hover:text-blue-600">
+                  Personalized Collection
                 </Link>
               </li>
             </ul>
@@ -62,13 +60,13 @@ export const Footer = () => {
             <h4 className="font-semibold text-gray-500 uppercase">About</h4>
             <ul className="text-gray-500 space-y-4">
               <li>
-                <Link href="/about#how">
-                  <a className="hover:text-blue-600">How I Built MemoWise</a>
+                <Link href="/about#how" className="hover:text-blue-600">
+                  How I Built MemoWise
                 </Link>
               </li>
               <li>
-                <Link href="/about#algorithm">
-                  <a className="hover:text-blue-600">Study Algorithm</a>
+                <Link href="/about#algorithm" className="hover:text-blue-600">
+                  Study Algorithm
                 </Link>
               </li>
             </ul>
@@ -78,12 +76,12 @@ export const Footer = () => {
         <div className="text-center">
           <p className="text-base font-medium text-gray-500">
             Made with ☕️☕️☕️ by{' '}
-            <a
+            <Link
               href="https://dtjv.io"
               className="font-semibold text-gray-900 hover:text-blue-600"
             >
               David Valles
-            </a>
+            </Link>
           </p>
         </div>
       </div>

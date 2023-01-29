@@ -22,12 +22,13 @@ const HomePage = ({ topics, numDecks }) => {
           Memowise, <em>the</em> smart Flashcard app, uses algorithm-based logic
           to accelerate your learning and improve retention.
         </p>
-        <a
+
+        <Link
           href="#explore-topics"
           className="inline-flex items-center px-6 py-3 text-lg font-semibold text-white bg-gray-900 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
         >
           Get started
-        </a>
+        </Link>
       </header>
       <div>
         <Features />
@@ -53,10 +54,8 @@ const HomePage = ({ topics, numDecks }) => {
             Check out all the decks Memowise has to offer - from Spanish terms
             to programming concepts and cooking skills.
           </p>
-          <Link href="/browse">
-            <a className="inline-flex items-center px-4 py-2 font-semibold bg-gray-800 rounded-lg bg-opacity-50 hover:bg-opacity-90 focus:outline-none focus:bg-opacity-90">
-              Explore all sets
-            </a>
+          <Link href="/browse" className="inline-flex items-center px-4 py-2 font-semibold bg-gray-800 rounded-lg bg-opacity-50 hover:bg-opacity-90 focus:outline-none focus:bg-opacity-90">
+            Explore all sets
           </Link>
         </div>
       </Container>

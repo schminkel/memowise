@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 
 import { Decks } from '@/components/Decks'
 import { Container } from '@/components/Container'
@@ -7,7 +7,7 @@ import { useUser } from '@/hooks/useUser'
 import { getDeckList } from '@/lib/data'
 
 const DecksPage = ({ decks = [] }) => {
-  const [session] = useSession()
+  const { data: session, status } = useSession()
   const { user } = useUser(session)
   const unlinked = decks.filter(
     (deck) =>

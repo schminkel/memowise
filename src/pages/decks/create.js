@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import axios from 'axios'
 
 import { DeckForm } from '@/components/DeckForm'
@@ -9,7 +9,7 @@ import { NotAuthorized } from '@/components/NotAuthorized'
 
 const CreateDeckPage = () => {
   const router = useRouter()
-  const [session] = useSession()
+  const { data: session, status } = useSession()
 
   if (!session) {
     return <NotAuthorized />

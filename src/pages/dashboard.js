@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { signOut, useSession } from 'next-auth/client'
+import { signOut, useSession } from 'next-auth/react'
 
 import { useUser } from '@/hooks/useUser'
 import { Decks } from '@/components/Decks'
@@ -11,7 +11,7 @@ import { NotAuthorized } from '@/components/NotAuthorized'
 
 const DashboardPage = () => {
   const router = useRouter()
-  const [session] = useSession()
+  const { data: session, status } = useSession()
   const { user, isLoading } = useUser(session)
 
   if (!session) {
@@ -48,14 +48,12 @@ const DashboardPage = () => {
               Sign out
             </button>
           </div>
-          <Link href="/decks/create">
-            <a className="inline-flex flex-none items-center px-3 py-1.5 text-base font-semibold text-white bg-blue-700 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800">
-              Create
-            </a>
+          <Link href="/decks/create" className="inline-flex flex-none items-center px-3 py-1.5 text-base font-semibold text-white bg-blue-700 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-800">
+            Create
           </Link>
         </div>
       </Container>
-      {user?.decks?.created ? (
+      {user?.decks?.created.length > 0 ? (
         <Container>
           <h2 className="mb-6 text-2xl font-bold leading-tight text-gray-900">
             Created By You
@@ -63,11 +61,12 @@ const DashboardPage = () => {
           <Decks decks={user.decks.created} created />
         </Container>
       ) : null}
-      {user?.decks?.linked ? (
+      {user?.decks?.linked.length > 0 ? (
         <Container>
           <h2 className="mb-6 text-2xl font-bold leading-tight text-gray-900">
             Added to Your Collection
           </h2>
+          {console.log(user.decks.linked)}
           <Decks decks={user.decks.linked} linked />
         </Container>
       ) : null}

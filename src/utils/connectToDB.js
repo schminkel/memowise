@@ -9,11 +9,8 @@ export const connectToDB = async (uri) => {
   if (connection.isConnected === 1) return
 
   try {
-    db = await mongoose.connect(uri ?? process.env.DB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    })
+    mongoose.set("strictQuery", false)
+    db = await mongoose.connect(uri ?? process.env.DB_URI)
   } catch (error) {
     console.error(error)
     return

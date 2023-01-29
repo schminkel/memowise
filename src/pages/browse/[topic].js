@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 
 import { Decks } from '@/components/Decks'
 import { BreadCrumbs } from '@/components/BreadCrumbs'
@@ -9,7 +9,7 @@ import { useUser } from '@/hooks/useUser'
 import { getTopic, getTopicList, getDeckList } from '@/lib/data'
 
 const TopicPage = ({ topic, decksBySubTopic }) => {
-  const [session] = useSession()
+  const { data: session, status } = useSession()
   const { user } = useUser(session)
   const crumbs = [{ name: topic.name, path: '', isLink: false }]
   const renderDecks = topic.subTopics.map((subTopic) => {
@@ -34,12 +34,10 @@ const TopicPage = ({ topic, decksBySubTopic }) => {
           <h2 className="text-2xl font-bold leading-tight text-gray-900">
             {subTopic.name}
           </h2>
-          <Link href={`/browse/${topic.slug}/${subTopic.slug}`}>
-            <a className="flex-shrink-0 ml-2">
-              <span className="text-base font-semibold text-blue-600">
-                View all -&gt;
-              </span>
-            </a>
+          <Link href={`/browse/${topic.slug}/${subTopic.slug}`} className="flex-shrink-0 ml-2">
+            <span className="text-base font-semibold text-blue-600">
+              View all -&gt;
+            </span>
           </Link>
         </div>
         {user && (

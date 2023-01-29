@@ -1,27 +1,22 @@
-import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
+import NextAuth from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import clientPromise from "../../../lib/mongodb"
 
-export default NextAuth({
+export const authOptions = {
   providers: [
-    Providers.GitHub({
+    GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-  database: process.env.DB_URI,
-  secret: process.env.SECRET,
-  session: {
-    jwt: true,
+  pages: {
+    signIn: "/auth/signin",
   },
-  jwt: {
-    encryption: true,
-  },
-  pages: {},
   callbacks: {
-    async redirect(_, baseUrl) {
+    async redirect({ url, baseUrl }) {
       return baseUrl
     },
-    // on signin, jwt called before session callback, and user.id is from db!
     async jwt(token, user) {
       if (user?.id) {
         token.userId = user.id
@@ -35,6 +30,8 @@ export default NextAuth({
       return session
     },
   },
-  events: {},
+  adapter: MongoDBAdapter(clientPromise),
   debug: false,
-})
+}
+
+export default NextAuth(authOptions)

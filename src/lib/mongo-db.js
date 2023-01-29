@@ -58,6 +58,7 @@ export const getUser = async (userId) => {
 }
 
 export const updateUser = async (userId, data) => {
+  
   await connectToDB()
 
   const user = await User.findById(userId)
