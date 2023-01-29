@@ -319,7 +319,7 @@ exports.data = {
         },
         {
           term: 'buenas noches',
-          definition: 'blue',
+          definition: 'good night',
         },
         {
           term: 'hola',
