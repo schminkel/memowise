@@ -118,13 +118,13 @@ const QuizPage = () => {
                 </h3>
                 <div className="flex flex-col items-center space-y-1">
                   <p className="text-lg font-semibold text-green-500">
-                    Correct
+                    ✅ Correct
                   </p>
                   <p className="text-lg font-bold">{getScore().numCorrect}</p>
                 </div>
                 <div className="flex flex-col items-center space-y-1">
                   <p className="text-lg font-semibold text-red-500">
-                    Incorrect
+                    ❌ Incorrect
                   </p>
                   <p className="text-lg font-bold">{getScore().numIncorrect}</p>
                 </div>

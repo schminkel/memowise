@@ -1,12 +1,12 @@
 import { useToggle } from '@/hooks/useToggle'
 
 const grades = [
-  { grade: 0, heading: 'Incorrect', description: 'Answer is a blank' },
-  { grade: 1, heading: 'Incorrect', description: 'Answer is familiar' },
-  { grade: 2, heading: 'Incorrect', description: 'Answer is easy' },
-  { grade: 3, heading: 'Correct', description: 'Answered with difficulty' },
-  { grade: 4, heading: 'Correct', description: 'Answered with hesitation' },
-  { grade: 5, heading: 'Correct', description: 'Answered with perfect recall' },
+  { grade: 0, heading: '❌ Incorrect', description: 'Answer is a blank' },
+  { grade: 1, heading: '❌ Incorrect', description: 'Answer is familiar' },
+  { grade: 2, heading: '❌ Incorrect', description: 'Answer is easy' },
+  { grade: 3, heading: '✅ Correct', description: 'Answered with difficulty' },
+  { grade: 4, heading: '✅ Correct', description: 'Answered with hesitation' },
+  { grade: 5, heading: '✅ Correct', description: 'Answered with perfect recall' },
 ]
 
 export const StudyCard = ({ card, selectedGrade, onGradeSelected }) => {
