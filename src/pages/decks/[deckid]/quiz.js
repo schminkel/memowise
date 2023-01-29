@@ -97,7 +97,7 @@ const QuizPage = () => {
   return (
     <>
       <Head>
-        <title>Memowise - {deck.name}</title>
+        <title>{`Memowise - ${deck.name}`}</title>
       </Head>
       <Container>
         <BreadCrumbs crumbs={crumbs} />
