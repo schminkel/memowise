@@ -33,7 +33,7 @@ export const BreadCrumbs = ({ crumbs }) => {
   if (!crumbs.length) return null
 
   return (
-    <div className="text-sm font-medium text-gray-500">
+    <div className="text-sm font-medium text-gray-500 pb-4">
       <div className="items-center hidden sm:flex">
         <Link href="/" aria-label="home page icon">
           <HomeIcon />
